@@ -1,0 +1,76 @@
+:root{
+    --dock-bg: rgba(20,24,30,0.9);
+    --accent: #7dd3fc;
+    --size: 1; /* scale multiplier */
+    --icon-size: calc(48px * var(--size));
+    --gap: 10px;
+    --corner-gap: 16px;
+    --dock-radius: 12px;
+  }
+  /* Container anchored bottom-right */
+  .tt-dock {
+    position: fixed;
+    right: var(--corner-gap);
+    bottom: var(--corner-gap);
+    z-index: 9999;
+    transform-origin: bottom right;
+    transform: scale(var(--size));
+    touch-action: none;
+    user-select: none;
+  }
+  .tt-dock.collapsed .tt-items { display: none; }
+  .tt-base {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.08));
+    display: grid;
+    place-items: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    color: white;
+    cursor: pointer;
+  }
+  .tt-dock.vertical { display: flex; flex-direction: column; align-items: flex-end; gap: var(--gap); }
+  .tt-dock.horizontal { display: flex; flex-direction: row; align-items: center; gap: var(--gap); }
+  .tt-items {
+    display: flex;
+    gap: var(--gap);
+    align-items: center;
+  }
+  .tt-item {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.04);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 160ms ease, box-shadow 160ms;
+  }
+  .tt-item.dragging { opacity: 0.5; transform: scale(1.05); box-shadow: 0 8px 24px rgba(0,0,0,0.45);}
+  .tt-item:focus { outline: 2px solid var(--accent); }
+  .tt-edit-badge {
+    position: absolute;
+    right: calc(var(--corner-gap) + 6px);
+    bottom: calc(var(--corner-gap) + 6px);
+    background: #ffb86b; color:#111; font-weight:700;
+    padding: 4px 8px; border-radius: 999px; font-size:12px;
+  }
+  /* Edit panel */
+  .tt-edit-panel {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+    display:flex; gap:8px; align-items:center;
+  }
+  .tt-slider { width:120px; }
+  /* small screens */
+  @media (max-width:520px){
+    :root{
+      --corner-gap: 10px;
+      --icon-size: calc(40px * var(--size));
+    }
+  }

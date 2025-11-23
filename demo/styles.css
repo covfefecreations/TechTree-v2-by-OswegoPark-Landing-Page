@@ -1,14 +1,51 @@
 :root{
-    --bg:#071021;
-    --panel:#0b1220;
-    --accent: #60a5fa;
-    --muted:#9aa7b2;
-    --glass: rgba(255,255,255,0.03);
-    --radius:14px;
-    --maxw:1080px;
-  }
+  --bg-dark: #071021;
+  --panel-dark: #0b1220;
+  --text-dark: #e6f0f6;
+  --accent-dark: #60a5fa;
+  --muted-dark: #9aa7b2;
+
+  --bg-light: #f8f9fa;
+  --panel-light: #ffffff;
+  --text-light: #212529;
+  --accent-light: #0d6efd;
+  --muted-light: #6c757d;
+
+  --glass: rgba(255,255,255,0.03);
+  --radius:14px;
+  --maxw:1080px;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background: linear-gradient(180deg, var(--bg-dark), #04101a);
+  color: var(--text-dark);
+}
+
+body.light-mode {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+.card {
+  transition: background-color 0.3s;
+}
+
+body.dark-mode .card {
+  background: var(--panel-dark);
+}
+
+body.light-mode .card {
+  background: var(--panel-light);
+}
   *{box-sizing:border-box}
-  body{margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:linear-gradient(180deg,var(--bg),#04101a); color:#e6f0f6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
   .wrap{max-width:var(--maxw); margin:48px auto; padding:28px;}
   header{display:flex;align-items:center;gap:18px}
   .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7dd3fc); display:grid; place-items:center; font-weight:700; color:#042;}
