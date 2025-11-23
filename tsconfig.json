@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outFile": "TechTree-React/TechTreeSmartNav.js",
+    "jsx": "react",
+    "module": "amd",
+    "esModuleInterop": true,
+    "lib": ["es2015", "dom"],
+    "moduleResolution": "node"
+  },
+  "files": [
+    "TechTree-React/TechTreeSmartNav.tsx"
+  ]
+}
