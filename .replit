@@ -3,7 +3,7 @@ entrypoint = "README.md"
 
 [nix]
 channel = "stable-24_11"
-packages = ["cowsay"]
+packages = ["cowsay", "unzip"]
 
 [agent]
 expertMode = true
