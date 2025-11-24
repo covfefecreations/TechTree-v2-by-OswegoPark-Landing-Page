@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>TechTree SmartNav — Prototype</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="techtree_style.css">
 </head>
 <body style="min-height:100vh;background:#0b0f14;color:#fff;padding:40px;">
 
@@ -28,6 +28,22 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+<script src="TechTreeSmartNav.js"></script>
+<script>
+  require.config({
+    paths: {
+      'react': 'https://unpkg.com/react@18/umd/react.development',
+      'react-dom': 'https://unpkg.com/react-dom@18/umd/react-dom.development'
+    }
+  });
+  requirejs(['react', 'react-dom', 'TechTreeSmartNav'], function(React, ReactDOM, TechTreeSmartNav) {
+    const container = document.getElementById('techtree');
+    if (container) {
+      const root = ReactDOM.createRoot(container);
+      root.render(React.createElement(TechTreeSmartNav.default));
+    }
+  });
+</script>
 </body>
 </html>
